@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+void main()
+{
+	int gd,gc,xcen,ycen;
+	gd=DETECT;
+	initgraph(&gd,&gc,"C:\\TC\\BGI");
+	xcen=getmaxx()/2;
+	ycen=getmaxy()/2;
+	line(0,ycen,getmaxx(),ycen);
+	setcolor(4);
+	circle(xcen,ycen,200);
+	setcolor(3);
+	circle(xcen,ycen,180);
+	setcolor(1);
+	circle(xcen,ycen,160);
+	setcolor(4);
+	rectangle(xcen-200,ycen-200,xcen+200,ycen+200);
+	setcolor(5);
+	rectangle(xcen-120,ycen-180,xcen+120,ycen+180);
+	setcolor(2);
+	ellipse(xcen,ycen,0,360,50,100);
+	setcolor(6);
+	getch();
+}

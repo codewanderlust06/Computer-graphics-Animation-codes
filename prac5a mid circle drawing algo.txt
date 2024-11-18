@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+void main()
+{
+	int gd=DETECT,gm;
+	int x,y,x_mid,y_mid,radius,dp;
+	initgraph(&gd,&gm,"C:\\TURBOC3\\BGI");
+	printf("Enter the coordinates: ");
+	scanf("%d%d",&x_mid,&y_mid);
+	printf("Enter the Radius: ");
+	scanf("%d",&radius);
+	x=0;
+	y=radius;
+	dp=1-radius;
+	do
+	{
+		putpixel(x_mid+x ,y_mid+y, YELLOW);
+		putpixel(x_mid+y ,y_mid+x, YELLOW);
+		putpixel(x_mid-y ,y_mid+x ,YELLOW);
+		putpixel(x_mid-x ,y_mid+y ,YELLOW);
+		putpixel(x_mid-x ,y_mid-y ,YELLOW);
+		putpixel(x_mid-y ,y_mid-x ,YELLOW);
+		putpixel(x_mid+y ,y_mid-x ,YELLOW);
+		putpixel(x_mid+x ,y_mid-y ,YELLOW);
+		if(dp<0)
+		{
+			dp=dp+(2*x)+1;
+		}
+		else
+		{
+			y=y-1;
+			dp=dp+(2*x)-(2*y)+1;
+		}
+		x=x+1;
+	}while(y>x);
+	getch();
+}
+
+//100 200
+//50
+
+
+

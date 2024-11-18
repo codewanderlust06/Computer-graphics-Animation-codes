@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+#include<math.h>
+int gd=DETECT,gm;
+int n,x[100],y[100],i;
+float tx,ty;
+
+void draw()
+{
+	for(i=0;i<n-1;i++)
+	{
+		line(x[i],y[i],x[i+1],y[i+1]);
+	}
+	line(x[0],y[0],x[n-1],y[n-1]);
+}
+void translate()
+{
+	for(i=0;i<n;i++)
+	{
+		x[i]=x[i]+tx;
+		y[i]=y[i]+ty;
+	}
+}
+void main()
+{
+	printf("Enter Number of sides: ");
+	scanf("%d",&n);
+	printf("Enter co-ordinates: x,y for each point");
+	for(i=0;i<n;i++)
+	scanf("%d%d",&x[i],&y[i]);
+	printf("Enter translation factors: (tx,ty) ");
+	scanf("%f%f",&tx,&ty);
+	initgraph(&gd,&gm,"C:\\TURBOC3\\BGI");
+	setcolor(11);
+	draw();
+	getch();
+	translate();
+	setcolor(2);
+	draw();
+	getch();
+}
+
+
+//3
+//100 120 200 280 280 100
+//130 150

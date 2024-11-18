@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+#include<stdlib.h>
+void main()
+{
+	int gdriver=DETECT,gmode,x=600;
+	initgraph(&gdriver,&gmode,"C:\\TURBOC3\\BGI");
+
+	for(x=0;x<250;x++)
+	{
+		x%=250;
+		setcolor(random(16));
+
+		circle(random(635),random(70),50);
+		circle(random(635),random(70),50);
+		circle(random(635),random(70),50);
+		circle(random(635),random(70),50);
+		circle(random(635),random(70),50);
+
+		clearviewport();
+		
+		settextstyle(1,0,5);
+		setcolor(RED);
+		outtextxy(200,415-2*x,"World");
+		setcolor(GREEN);
+		outtextxy(200,415-2*x,"*Of*");
+		setcolor(YELLOW);
+		outtextxy(350,415-2*x,"*Graphics*");
+	}
+	getch();
+}

@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+#include<dos.h>
+void floodFill(int,int,int,int);
+void floodFill(int x,int y,int newcolor,int defaultcolor)
+{
+	if(getpixel(x,y)==defaultcolor)
+	{
+		delay(5);
+		putpixel(x,y,newcolor);
+		floodFill(x+1,y,newcolor,defaultcolor);
+		floodFill(x,y+1,newcolor,defaultcolor);
+		floodFill(x-1,y,newcolor,defaultcolor);
+		floodFill(x,y-1,newcolor,defaultcolor);
+	}
+}
+int main()
+{
+	int gm,gd=DETECT;
+	int x,y,radius;
+	printf("Enter x and y positions for circle(center of circle)\n");
+	scanf("%d%d",&x,&y);
+	printf("Enter radius of circle\n");
+	scanf("%d",&radius);
+	initgraph(&gd,&gm,"C:\\TURBOC3\\BGI");
+	circle(x,y,radius);
+	floodFill(x,y,9,0);
+	delay(10);
+	getch();
+	return 0;
+}
+
+//200 200
+//30
